@@ -11,8 +11,8 @@ TempleOS, etc...) refer read the docs below provide by author OR you know what y
 git clone https://github.com/ongedit/snap-captions/
 cd snap-captions
 cp "Snap Captions.lua" "$env:appdata\Blackmagic Design\DaVinci Resolve\Support\Fusion\Scripts\Comp\"
-ii '.\Snap Captions Index.drb'
 ii *.ttf
+ii '.\Snap Captions Index.drb'
 ```
 
 OR
@@ -22,6 +22,8 @@ OR
 ```
 
 It will open some Windows font install just click install or just open the bin and change the font you want.
+
+Maybe Davici Resolve didn't loading the new font, So just re-open it
 
 Copy Snap Captions bin into the power bin for easy import or just click this `.drb` file every time you new project
 
