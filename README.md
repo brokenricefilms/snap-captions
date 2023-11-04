@@ -9,6 +9,7 @@
 > Rightnow I only test on Windows, that mean this Just work. If you use other OS (MacOS, Linux, 
 TempleOS, etc...) refer read the docs below provide by author OR you know what you doing.
 
+> Copy and pasted in PowerShell
 ```pwsh
 git clone https://github.com/ongedit/snap-captions/
 cd snap-captions
