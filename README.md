@@ -27,6 +27,8 @@ OR
 1. Select all
 1. Right click
 1. Select install
+1. Make sure davinci resolve isn't opening (cuz it's need loading the font)
+1. Open the `Snap Captions Index.drb`
 
 
 Copy Snap Captions bin into the power bin for easy import or just click this `.drb` file every time you new project
