@@ -14,6 +14,7 @@ TempleOS, etc...) refer read the docs below provide by author OR you know what y
 git clone https://github.com/ongedit/snap-captions/
 cd snap-captions
 cp "Snap Captions.lua" "$env:appdata\Blackmagic Design\DaVinci Resolve\Support\Fusion\Scripts\Comp\"
+ii .\fonts\
 ```
 
 OR
