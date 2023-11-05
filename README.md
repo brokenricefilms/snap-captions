@@ -14,7 +14,7 @@ TempleOS, etc...) refer read the docs below provide by author OR you know what y
 git clone https://github.com/ongedit/snap-captions/
 cd snap-captions
 cp "Snap Captions.lua" "$env:appdata\Blackmagic Design\DaVinci Resolve\Support\Fusion\Scripts\Comp\"
-ii .\fonts\
+ii ./fonts/
 ```
 
 OR
@@ -23,7 +23,7 @@ OR
 ./install.ps1
 ```
 
-1. Open the <./fonts/> folder 
+1. Open the (./fonts/)[./fonts/] folder 
 1. Select all
 1. Right click
 1. Select install
