@@ -23,7 +23,7 @@ OR
 ./install.ps1
 ```
 
-1. Open the (./fonts/)[./fonts/] folder 
+1. Open the [fonts/](./fonts/) folder 
 1. Select all
 1. Right click
 1. Select install
