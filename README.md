@@ -1,6 +1,6 @@
 # Snap Captions Davinci Resolve
 
-![](./demo-v1.mov)
+https://github.com/ongedit/snap-captions/assets/40050527/f89f5281-8426-4ab2-980a-c5d840c1bce7
 
 - Add more text styles for Snap Captions
 - Welcomed to contribute
@@ -8,10 +8,10 @@
 
 ## Install
 
-> Rightnow I only test on Windows, that mean this Just work. If you use other OS (MacOS, Linux, 
-TempleOS, etc...) refer read the docs below provide by author OR you know what you doing.
+> Right now I only test on Windows, which means this Just works. If you use other OS (MacOS, Linux, 
+TempleOS, etc...) Refer read the docs below provided by the author OR you know what you were doing.
 
-> Copy and pasted in PowerShell
+> Copy and paste in PowerShell
 ```pwsh
 git clone https://github.com/ongedit/snap-captions/
 cd snap-captions
@@ -29,18 +29,18 @@ OR
 1. Select all
 1. Right click
 1. Select install
-1. Make sure davinci resolve isn't opening (cuz it's need loading the font)
+1. Make sure Davinci Resolve isn't opening (because it's needs loading the font)
 1. Open the `Snap Captions Index.drb`
 
 
-Copy Snap Captions bin into the power bin for easy import or just click this `.drb` file every time you new project
+Copy the Snap Captions bin into the power bin for easy import or just click this `.drb` file every time you new project
 
 ## Dev 
 
 1. Open the "Snap Captions Index.drb"
 2. Open timeline, change stuff, rename
-3. Delete all text in Snap Caption bin
-4. Select all the text on timeline
+3. Delete all text in the Snap Caption bin
+4. Select all the text on the timeline
 5. Drag and drop to Snap Caption bin
 
 ## Docs
