@@ -1,5 +1,7 @@
 # Snap Captions Davinci Resolve
 
+![](./demo-v1.mov)
+
 - Add more text styles for Snap Captions
 - Welcomed to contribute
 - Buy Author a coffee: <https://ko-fi.com/mediable>
