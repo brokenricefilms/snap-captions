@@ -1,6 +1,10 @@
 # Snap Captions Davinci Resolve
 
-https://github.com/ongedit/snap-captions/assets/40050527/ab0d4d61-49bb-45df-a3a0-0180c2b20bbe
+
+
+https://github.com/ongedit/snap-captions/assets/40050527/2fd8f8e1-ae44-43c3-8195-e00a936687ec
+
+
 
 - Add more text styles for Snap Captions
 - Welcomed to contribute
