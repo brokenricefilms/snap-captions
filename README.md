@@ -13,7 +13,7 @@ https://github.com/ongedit/snap-captions/assets/40050527/2fd8f8e1-ae44-43c3-8195
 ## Install
 
 > Right now I only test on Windows, which means this Just works. If you use other OS (MacOS, Linux, 
-TempleOS, etc...) Refer read the docs below provided by the author OR you know what you were doing.
+TempleOS, etc...) Refer read the docs below provided by the author OR you know what you doing.
 
 > Copy and paste in PowerShell
 ```pwsh
