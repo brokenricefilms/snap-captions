@@ -1,6 +1,6 @@
 -- Copyright (C) 2023 Orson Lord & Dan Knowlton
 --
--- Snap Captions v1.2
+-- Snap Captions v1.3
 -- This tool automates the process of creating Text+ clips from subtitle
 -- clips.
 --
@@ -583,7 +583,8 @@ local function GetSubtitleData(subtitle_track_index,
         local text = clip:GetName()
         text = ApplyTextTransform(text, transform)
         if remove_punctuation then
-            text = text:gsub("[.!?,:;]", "")
+            text = text:gsub("[.!?,:;-]", "")
+            text = text:gsub('["]', "")
         end
 
         -- Remove "invisible" UTF-8 line break
@@ -720,7 +721,15 @@ local function GenerateTextPlus(win)
                                           remove_punctuation)
 
     -- Create a new video track.
-    timeline:AddTrack("video")
+    local track_created = timeline:AddTrack("video")
+    if not track_created then
+        local dialog = CreateDialog("AddTrack Failed",
+                                    "Failed to add a new video track to add captions to.")
+        dialog:Show()
+        dialog:RecalcLayout()
+        return false
+    end
+
     local track_count = timeline:GetTrackCount("video")
 
     local success = CreateTextPlusClips(win, subtitle_data, text_template_index, track_count)
@@ -753,7 +762,7 @@ local function CreateToolWindow()
     local win = disp:AddWindow(
         {
             ID = winID,
-            WindowTitle = "Snap Captions v1.2",
+            WindowTitle = "Snap Captions V1.3",
             Geometry = {nil, nil, WINDOW_WIDTH, WINDOW_HEIGHT},
             Margin = 16,
 

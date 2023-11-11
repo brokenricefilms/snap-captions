@@ -45,6 +45,6 @@ Copy the Snap Captions bin into the power bin for easy import or just click this
 
 ## Docs
 
-- Snap Caption script v1.2
+- Snap Caption script v1.3
 - Link to Snap Captions <https://ko-fi.com/s/67e49a15e7>
 - https://mediable.notion.site/Snap-Captions-Install-Guide-f39ead46635148d9bd4c4e1052c43d19 
