@@ -43,6 +43,7 @@ Copy the Snap Captions bin into the power bin for easy import or just click this
 3. Delete all text in the Snap Caption bin
 4. Select all the text on the timeline
 5. Drag and drop to Snap Caption bin
+6. Export Snap Captions Index bin
 
 ## Docs
 
