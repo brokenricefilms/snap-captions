@@ -1,6 +1,6 @@
 # Snap Captions Davinci Resolve
 
-https://github.com/ongedit/snap-captions/assets/40050527/2fd8f8e1-ae44-43c3-8195-e00a936687ec
+Live demo: https://www.youtube.com/watch?v=_-s7AZpUv4A
 
 - Add more text styles for Snap Captions
 - What's Snap Captions? -> https://youtu.be/fOQ7VA7nwxM?si=jyKmQOjcm1zv6g1A
@@ -27,11 +27,11 @@ OR
 ```
 
 1. Open the [fonts/](./fonts/) folder 
-1. Select all
-1. Right click
-1. Select install
-1. Make sure Davinci Resolve isn't opening (because it's needs loading the font)
-1. Open the `Snap Captions Index.drb`
+2. Select all
+3. Right click
+4. Select install
+5. Make sure Davinci Resolve isn't opening (because it's needs loading the font)
+6. Open the `Snap Captions Index.drb` (if some issue happen just restart the davinci resole) 
 
 
 Copy the Snap Captions bin into the power bin for easy import or just click this `.drb` file every time you new project
