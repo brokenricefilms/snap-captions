@@ -1,6 +1,6 @@
 -- Copyright (C) 2023 Orson Lord & Dan Knowlton
 --
--- Snap Captions v1.3
+-- Snap Captions v1.4
 -- This tool automates the process of creating Text+ clips from subtitle
 -- clips.
 --
@@ -9,6 +9,10 @@
 --
 -- This software can not be redistributed or sold without the express
 -- permission of the authors.
+
+
+local utf8 = string
+local hasUtf8Support = false
 
 
 local ui = fu.UIManager
@@ -51,6 +55,22 @@ local function ScriptIsInstalled()
 end
 
 local SCRIPT_INSTALLED = ScriptIsInstalled()
+
+
+local function LoadUTF8Module()
+    -- Remove any previously loaded utf8 module.
+    package.loaded.utf8_snapcaptions = nil
+
+    hasUtf8Support, utf8 = pcall(require, "utf8_snapcaptions")
+    if not hasUtf8Support and SCRIPT_INSTALLED then
+        print("[WARNING]: Snap Captions utf8 module could not be loaded. " ..
+              "Please ensure that the utf8_snapcaptions.lua file exists in " ..
+              "the Modules/Lua folder.")
+        utf8 = string
+    end
+end
+LoadUTF8Module()
+
 
 local COLUMN_WIDTH = 130
 local WINDOW_WIDTH = 320
@@ -273,27 +293,43 @@ local function CreateDialog(title, message)
 end
 
 
+local function CopyFile(source, target)
+    local source_file = io.open(source, "r")
+    local contents = source_file:read("*a")
+    source_file:close()
+
+    local target_file = io.open(target, "w")
+    if target_file == nil then
+        return false
+    end
+    target_file:write(contents)
+    target_file:close()
+
+    return true
+end
+
+
 local function InstallScript()
     local source_path = script_path()
     local target_path = nil
+    local modules_path = nil
     if platform == "Windows" then
         target_path = os.getenv("APPDATA") .. "\\Blackmagic Design\\DaVinci Resolve\\Support\\Fusion\\Scripts\\Comp\\"
+        modules_path = os.getenv("APPDATA") .. "\\Blackmagic Design\\DaVinci Resolve\\Support\\Fusion\\Modules\\Lua\\"
     elseif platform == "Mac" then
         target_path = os.getenv("HOME") .. "/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Scripts/Comp/"
+        modules_path = os.getenv("HOME") .. "/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Modules/Lua/"
     else
         target_path = os.getenv("HOME") .. "/.local/share/DaVinciResolve/Fusion/Scripts/Comp/"
+        modules_path = os.getenv("HOME") .. "/.local/share/DaVinciResolve/Fusion/Modules/Lua/"
     end
 
     local script_name = source_path:match(".*[/\\](.*)")
     target_path = target_path .. script_name
 
     -- Copy the file.
-    local source_file = io.open(source_path, "r")
-    local contents = source_file:read("*a")
-    source_file:close()
-
-    local target_file = io.open(target_path, "w")
-    if target_file == nil then
+    local success = CopyFile(source_path, target_path)
+    if not success then
         local dialog = CreateDialog("Failed to install Snap Captions",
             "Snap Captions could not be installed automatically. " ..
             "Please manually copy to the Scripts/Comp folder.")
@@ -302,8 +338,15 @@ local function InstallScript()
         return false
     end
 
-    target_file:write(contents)
-    target_file:close()
+    -- Also copy the utf8 modules to the Modules folder.
+    local utf8_source = source_path:match("(.*[/\\]).+$") .. "utf8_snapcaptions.lua"
+    local utf8_target = modules_path .. "utf8_snapcaptions.lua"
+    success = CopyFile(utf8_source, utf8_target)
+
+    if success then
+        -- Reload the utf8 module.
+        LoadUTF8Module()
+    end
 
     print("[Snap Captions] Installed to " .. target_path)
     return true
@@ -533,17 +576,17 @@ end
 
 
 local function ToTitleCase(first, rest)
-    return first:upper()..rest:lower()
+    return utf8.upper(first)..utf8.lower(rest)
 end
 
 
 local function ApplyTextTransform(text, transform)
     if transform == "To Lowercase" then
-        return string.lower(text)
+        return utf8.lower(text)
     elseif transform == "To Uppercase" then
-        return string.upper(text)
+        return utf8.upper(text)
     elseif transform == "Capitalize All Words" then
-        return text:gsub("(%a)([%w_']*)", ToTitleCase)
+        return utf8.gsub(text, "(%a)([%w_']*)", ToTitleCase)
     else
         return text
     end
@@ -762,7 +805,7 @@ local function CreateToolWindow()
     local win = disp:AddWindow(
         {
             ID = winID,
-            WindowTitle = "Snap Captions V1.3",
+            WindowTitle = "Snap Captions v1.4",
             Geometry = {nil, nil, WINDOW_WIDTH, WINDOW_HEIGHT},
             Margin = 16,
 
